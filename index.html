@@ -13,8 +13,10 @@
 <script type="text/x-template" id="user-list">
   <div>
     <div>User index page(text/x-template)</div>
+    <br>
+
     <div class="loading alert-info" v-if="loading">Loading...</div>
-    <div class="error alert-warning" v-if="error"> {{ error }}</div>
+    <div class="error alert-danger" v-if="error"> {{ error }}</div>
     <div v-for="user in users" :key="user.id">
       <h6>{{ user.name }}</h6>
     </div>
@@ -24,8 +26,10 @@
 <script type="text/x-template" id="user-detail">
   <div>
     <div>User Detail page(text/x-template)</div>
+    <br>
+
     <div class="loading alert-info" v-if="loading">Loading...</div>
-    <div class="error alert-warning" v-if="error"> {{ error }}</div>
+    <div class="error alert-danger" v-if="error"> {{ error }}</div>
     <div v-if="user"">
       <h6>{{ user.name }}</h6>
       <h6>{{ user.description }}</h6>
