@@ -65,6 +65,10 @@ const UserList = {
   },
 }
 
+const UserCreate = {
+  template: "#user-create",
+}
+
 const UserDetail = {
   template: "#user-detail",
   data: function () {
