@@ -57,6 +57,10 @@ var router = new VueRouter({
       path: "/users",
       component: UserList
     },
+    {
+      path: "/users/:userId",
+      component: UserDetail
+    },
   ],
 })
 
