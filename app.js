@@ -107,11 +107,15 @@ const router = new VueRouter({
     },
     {
       path: "/users",
-      component: UserList
+      component: UserList,
+    },
+    {
+      path: "/users/new",
+      component: UserCreate,
     },
     {
       path: "/users/:userId",
-      component: UserDetail
+      component: UserDetail,
     },
   ],
 })
