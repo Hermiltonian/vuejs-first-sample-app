@@ -1,5 +1,48 @@
+const getUsers = (callback) => {
+  setTimeout(() => {
+    callback(null, [
+      {
+        id: 1,
+        name: "Milk",
+      },
+      {
+        id: 2,
+        name: "Kaka",
+      },
+    ])
+  }, 1000);
+}
+
 var UserList = {
-  template: "#user-list"
+  template: "#user-list",
+  data: function () {
+    return {
+      loading: false,
+      error: false,
+      users: function () { return [] },
+    }
+  },
+  created: function () {
+    this.fetchData();
+  },
+  watch: {
+    "$router": "fetchData",
+  },
+  methods: {
+    fetchData: function () {
+      this.loading = true;
+
+      getUsers((function (error, users) {
+        this.loading = false;
+
+        if (error) {
+          this.error = error.toString();
+        } else {
+          this.users = users;
+        }
+      }).bind(this));
+    },
+  },
 }
 
 var router = new VueRouter({
