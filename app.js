@@ -4,10 +4,12 @@ const getUsers = (callback) => {
       {
         id: 1,
         name: "Milk",
+        description: "I have a pattern like a cow.",
       },
       {
         id: 2,
         name: "Kaka",
+        description: "I like eating adn sleeping.",
       },
     ])
   }, 1000);
