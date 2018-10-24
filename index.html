@@ -21,4 +21,16 @@
   </div>
 </script>
 
+<script type="text/x-template" id="user-detail">
+  <div>
+    <div>User Detail page(text/x-template)</div>
+    <div class="loading alert-info" v-if="loading">Loading...</div>
+    <div class="error alert-warning" v-if="error"> {{ error }}</div>
+    <div v-if="user"">
+      <h6>{{ user.name }}</h6>
+      <h6>{{ user.description }}</h6>
+    </div>
+  </div>
+</script>
+
 <script src="app.js"></script>
