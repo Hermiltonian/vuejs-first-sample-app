@@ -33,7 +33,7 @@ const getUser = (userId, callback) => {
   }, 1000);
 }
 
-var UserList = {
+const UserList = {
   template: "#user-list",
   data: function () {
     return {
@@ -97,7 +97,7 @@ const UserDetail = {
   },
 }
 
-var router = new VueRouter({
+const router = new VueRouter({
   routes: [
     {
       path: "/top",
@@ -116,6 +116,6 @@ var router = new VueRouter({
   ],
 })
 
-var app = new Vue({
+const app = new Vue({
   router: router
 }).$mount("#app")
