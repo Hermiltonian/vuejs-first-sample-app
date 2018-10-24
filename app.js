@@ -33,6 +33,14 @@ const getUser = (userId, callback) => {
   }, 1000);
 }
 
+const postUser = (params, callback) => {
+  setTimeout(() => {
+    params.id = userData.length + 1;
+    userData.push(params);
+    callback(null, params);
+  }, 1000)
+}
+
 const UserList = {
   template: "#user-list",
   data: function () {
@@ -67,6 +75,48 @@ const UserList = {
 
 const UserCreate = {
   template: "#user-create",
+  data: function () {
+    return {
+      sending: false,
+      error: null,
+      user: this.defaultUser(),
+    }
+  },
+  created: function () {
+
+  },
+  methods: {
+    defaultUser: function () {
+      return {
+        name: "",
+        description: "",
+      }
+    },
+    createUser: function () {
+      if (this.user.name.trim() === "") {
+        this.error = "Name must be required.";
+        return;
+      }
+
+      if (this.user.description.trim() === "") {
+        this.error = "Description must be required.";
+        return;
+      }
+
+      postUser(this.user, ((error, user) => {
+        this.sending = false;
+
+        if (error) {
+          this.error = error.toString();
+        } else {
+          this.error = null;
+          this.user = this.defaultUser();
+          alert("Success creating new user");
+          this.$router.push("/users");
+        }
+      }).bind(this))
+    },
+  },
 }
 
 const UserDetail = {
