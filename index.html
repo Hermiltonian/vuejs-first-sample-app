@@ -6,7 +6,9 @@
   <nav>
     <router-link to="/top" class="btn btn-outline-primary">top page</router-link>
     <router-link to="/users" class="btn btn-outline-primary">users index page</router-link>
-    <router-link to="/users/new" class="btn btn-outline-primary">create user page</router-link>
+    <router-link to="/users/new?redirect=true" class="btn btn-outline-primary">create user page</router-link>
+    <router-link to="/login" v-show="!Auth.loggedIn()" class="btn btn-outline-primary">Signin</router-link>
+    <router-link to="/logout" v-show="Auth.loggedIn()" class="btn btn-outline-primary">Signout</router-link>
   </nav>
   <router-view></router-view>
 </div>

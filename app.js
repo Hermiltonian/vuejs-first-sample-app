@@ -32,7 +32,7 @@ const Login = {
         if (!loggedIn) {
           this.error = true;
         } else {
-          this.$router.replace(this.$route.query.redirect ||  "/");
+          this.$router.replace(this.$route.query.redirect || "/");
         }
       }).bind(this));
     },
@@ -232,12 +232,19 @@ const router = new VueRouter({
       path: "/logout",
       beforeEnter: function (to, from, next) {
         Auth.logout();
-        next("/");
+        next("/top");
       },
+    },
+    {
+      path: "*",
+      redirect: "/top",
     },
   ],
 })
 
 const app = new Vue({
-  router: router
+  data: {
+    Auth: Auth,
+  },
+  router,
 }).$mount("#app")
