@@ -185,10 +185,33 @@ const router = new VueRouter({
     {
       path: "/users/new",
       component: UserCreate,
+      beforeEnter: function (to, from, next) {
+        if (!Auth.loggedIn()) {
+          next({
+            path: "/login",
+            query: {
+              redirect: to.fullPath,
+            },
+          });
+        } else {
+          next();
+        }
+      },
     },
     {
       path: "/users/:userId",
       component: UserDetail,
+    },
+    {
+      path: "/login",
+      component: Login,
+    },
+    {
+      path: "/logout",
+      beforeEnter: function (to, from, next) {
+        Auth.logout();
+        next("/");
+      },
     },
   ],
 })
