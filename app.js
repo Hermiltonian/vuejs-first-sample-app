@@ -192,13 +192,15 @@ const UserDetail = {
   },
 }
 
+const Top = {
+  template: "#top",
+}
+
 const router = new VueRouter({
   routes: [
     {
       path: "/top",
-      component: {
-        template: "<div>this is top(component)</div>",
-      },
+      component: Top,
     },
     {
       path: "/users",

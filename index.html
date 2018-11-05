@@ -13,6 +13,13 @@
   <router-view></router-view>
 </div>
 
+
+<script type="text/x-template" id="top">
+  <div>
+    <h5>Welcome</h5>
+  </div>
+</script>
+
 <script type="text/x-template" id="user-list">
   <div>
     <div>User index page</div>
@@ -68,14 +75,12 @@
   <div>
     <div v-if="error" class="error alert-danger">Fail to login</div>
     <h6>Login</h6>
-    <p v-if:"$route.query.redirect">You should login</p>
+    <p v-if="$route.query.redirect">You should login</p>
     <form @submit.prevent="login">
-      <div class="form-group">
-        <label><input v-model="email" placeholder="email" class="form-control"></label>
-      </div>
+      <label><input v-model="email" placeholder="email" class="form-control"></label>
       <label><input v-model="pass" placeholder="password" type="password" class="form-control"></label>
       <br>
-      <button type="submit" class="btn btn-primary">
+      <button type="submit" class="btn btn-primary">login</button>
     </form>
   </div>
 </script>
